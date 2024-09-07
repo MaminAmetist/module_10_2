@@ -14,7 +14,7 @@ class Knight(Thread):
     def run(self):
         print(f'{self.name}, на нас напали!')
         while range(self.COUNT + 1):
-            if self.COMPANY > 0:
+            if self.COMPANY >= self.power:
                 sleep(1)
                 self.COUNT += 1
                 self.COMPANY -= self.power
