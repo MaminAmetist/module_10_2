@@ -4,21 +4,21 @@ from threading import Thread
 from time import sleep
 
 class Knight(Thread):
-    COMPANY = 100
-    COUNT = 0
     def __init__(self, name, power):
         super().__init__()
         self.name = name
         self.power = power
+        self.coint = 0
+        self.company = 100
 
     def run(self):
         print(f'{self.name}, на нас напали!')
-        while range(self.COMPANY):
+        while range(self.company):
             sleep(1)
-            self.COUNT += 1
-            self.COMPANY -= self.power
-            print(f'{self.name} сражается {self.COUNT} дней(дня), осталось {self.COMPANY} воинов')
-        return print(f'{self.name} одержал победу спустя {self.COUNT} дней(дня)!')
+            self.coint += 1
+            self.company -= self.power
+            print(f'{self.name} сражается {self.coint} дней(дня), осталось {self.company} воинов')
+        print(f'{self.name} одержал победу спустя {self.coint} дней(дня)!')
 
 first_knight = Knight('Sir Lancelot', 10)
 second_knight = Knight("Sir Galahad", 20)
@@ -33,3 +33,4 @@ thr_1.join()
 thr_2.join()
 
 print('Все битвы закончились!')
+
